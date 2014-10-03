@@ -17,6 +17,16 @@ GRID_FLAT_LEN = GRID_SIZE**2
 EMPTY_CELL = None
 TWO_FREQ = 0.8
 
+KEYBOARD_MAP = {
+                'q': 'left',
+                'd': 'right',
+                'z': 'top',
+                's': 'bottom',
+               }
+
+
+############# The Grid: ###############
+
 def is_empty(grid, cell):
     return grid[cell] is None
 
@@ -34,14 +44,14 @@ def make_grid(s, empty_cell='-', column_sep=' '):
         return map(to_cell, [cell for line in grid for cell in line])
     raise ValueError("Grid not well formed")
 
-def make_empty_grid():
-    return [None]*(GRID_SIZE**2)
-
 def print_grid(grid):
     print '%s\n' % ('_'*(6*GRID_SIZE-1))
     for line in [grid[i*GRID_SIZE:(i+1)*GRID_SIZE] for i in xrange(GRID_SIZE)]:
         print ' '.join(map(lambda x: "{el:>5}".format(el=(str(x) if x else '-')), line))
     print '_'*(6*GRID_SIZE-1)
+
+
+############# Game Logic: ###############
 
 def get_empty_cells(grid):
     return [i for i, _ in enumerate(grid) if is_empty(grid, i)]
@@ -114,13 +124,6 @@ def game_finished(grid):
         if (i < GRID_FLAT_LEN - GRID_SIZE) and grid[i] == grid[i+GRID_SIZE]:
             return False
     return True
-
-KEYBOARD_MAP = {
-                'q': 'left',
-                'd': 'right',
-                'z': 'top',
-                's': 'bottom',
-               }
 
 def print_help_message():
     print '### {name} v.{version} by {author} ###'.format(name=py2048.NAME,
