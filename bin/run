@@ -1,0 +1,9 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+# vim:fenc=utf-8
+#
+# Copyright © 2014 Sébastien Diemer <sebastien.diemer@mines-paristech.fr>
+from py2048.game import play
+
+if __name__ == "__main__":
+    play()
