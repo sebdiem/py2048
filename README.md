@@ -21,3 +21,4 @@ If you want to run the test, you need to install `nose` and run the following co
 
     nosetests
 
+![](https://github.com/sebdiem/py2048/blob/master/screenshot.png)

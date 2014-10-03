@@ -1,8 +1,0 @@
-setup.py
-py2048/__init__.py
-py2048/_version.py
-py2048/game.py
-py2048.egg-info/PKG-INFO
-py2048.egg-info/SOURCES.txt
-py2048.egg-info/dependency_links.txt
-py2048.egg-info/top_level.txt
