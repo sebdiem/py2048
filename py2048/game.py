@@ -136,6 +136,7 @@ def print_final_message():
     print '    You lose!'
 
 def play():
+    print_help_message()
     grid = make_empty_grid()
     while add_random(grid):
         print_grid(grid)
