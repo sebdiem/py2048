@@ -52,6 +52,13 @@ def test_add_random_impossible():
         add_random(grid)
     assert not add_random(grid)
 
+def test_empty_cells():
+    grid = make_grid(('- - - 2\n'
+                      '2 - - 4\n'
+                      '- 8 - 2\n'
+                      '- - 16 16'))
+    assert get_empty_cells(grid) == [0, 1, 2, 5, 6, 8, 10, 12, 13]
+
 def test_move_left():
     grid = make_grid(('- - - 2\n'
                       '2 - - 4\n'
@@ -170,6 +177,16 @@ def test_game_finished():
                       '16 2 8 4\n'
                       '4 32 4 2\n'
                       '2 8 8 4'))
+    assert not game_finished(grid)
+    grid = make_grid(('32 64 16 4\n'
+                      '16 2 8 4\n'
+                      '4 32 4 2\n'
+                      '2 8 2 4'))
+    assert not game_finished(grid)
+    grid = make_grid(('32 64 16 4\n'
+                      '16 2 8 128\n'
+                      '4 32 4 512\n'
+                      '2 8 2 512'))
     assert not game_finished(grid)
     grid = make_grid(('2 4 8 16\n'
                       '4 2 16 8\n'
