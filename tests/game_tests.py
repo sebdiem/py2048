@@ -78,6 +78,15 @@ def test_move_left():
                2, 4, None, None,
                8, 2, None, None,
                32, None, None, None])
+    grid = make_grid(('2 2 2 2\n'
+                      '- - - -\n'
+                      '- - - -\n'
+                      '- - - -'))
+    move(grid, 'left')
+    eq_(grid, make_grid(('4 4 - -\n'
+                         '- - - -\n'
+                         '- - - -\n'
+                         '- - - -')))
 
 def test_move_right():
     grid = make_grid(('- - - 2\n'
